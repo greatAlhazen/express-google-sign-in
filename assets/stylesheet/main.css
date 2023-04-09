@@ -1,0 +1,60 @@
+/* default values */
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Delicious Handrawn", cursive;
+  font-size: 4rem;
+  text-align: center;
+  background: #edeade;
+}
+
+/* center alignment */
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-heading {
+  margin-bottom: 1.5rem;
+}
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 5rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: aliceblue;
+  border-radius: 5px;
+}
+
+.btn--1 {
+  background: crimson;
+  margin-right: 2rem;
+}
+
+.btn--2 {
+  background: blue;
+}
+
+.btn--3 {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: aqua;
+}
