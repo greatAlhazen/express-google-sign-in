@@ -3,6 +3,7 @@ const path = require("path");
 const passport = require("passport");
 const { Strategy } = require("passport-google-oauth20");
 const cookieSession = require("cookie-session");
+const { createError } = require("./utils");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -66,6 +67,21 @@ app.use(express.static(path.join(__dirname, "assets")));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
+// get user middlewra
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
+// check user log-in
+const isLoggedIn = (req, res, next) => {
+  const loggedIn = req.isAuthenticated() && req.user;
+  if (!loggedIn) {
+    return next(createError(400, "You are not authorized"));
+  }
+  next();
+};
+
 // for user redirect page
 app.get(
   "/auth/google",
@@ -87,14 +103,32 @@ app.get(
   }
 );
 
+// logout
+app.get("/auth/logout", (req, res) => {
+  req.logout();
+  return res.redirect("/");
+});
+
 // auth failure endpoint
 app.get("/error", (req, res, next) => {
-  console.log("something went wrong");
+  next(createError(500, "google authentication error occured"));
+});
+
+// secret page endpoint
+app.get("/secret", isLoggedIn, (req, res) => {
+  res.render("secret");
 });
 
 // render main page
 app.get("/", (req, res) => {
   res.render("home", { title: "Home" });
+});
+
+// error middleware
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message || "Something went wrong";
+  res.status(status).render("error", { status, message });
 });
 
 module.exports = app;

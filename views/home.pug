@@ -3,7 +3,7 @@ extends layout.pug
 block content
     div.center
         h1.center-heading Welcome to secret Infinite Scroll
-        a(href='#').btn.btn--1 Sign In with google
-        a(href='#').btn.btn--2 Show infinite scroll
-    
-    a(href='#').btn.btn--3 Logout
+        a(href='/auth/google').btn.btn--1 Sign In with google
+        a(href='/secret').btn.btn--2 Show infinite scroll
+    if user
+        a(href='/auth/logout').btn.btn--3 Logout

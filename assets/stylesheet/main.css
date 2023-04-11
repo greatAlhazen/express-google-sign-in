@@ -33,6 +33,19 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* error middleware*/
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.errorMessage__status {
+  color: tomato;
+}
+
 /* buttons */
 .btn {
   display: inline-block;
