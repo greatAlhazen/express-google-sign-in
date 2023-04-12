@@ -5,9 +5,7 @@ const { Strategy } = require("passport-google-oauth20");
 const cookieSession = require("cookie-session");
 const { createError } = require("./utils");
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+require("dotenv").config();
 
 // secret values
 const config = {
@@ -36,7 +34,6 @@ const AUTH_OPTIONS = {
 
 // handling auth after user sign-in
 function verifyCallback(accessToken, refreshToken, profile, done) {
-  console.log("User profile", profile);
   done(null, profile);
 }
 
@@ -98,9 +95,7 @@ app.get(
     successRedirect: "/",
     session: true,
   }),
-  (req, res) => {
-    console.log("Google called us back!");
-  }
+  (req, res) => {}
 );
 
 // logout

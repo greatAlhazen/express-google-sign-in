@@ -33,6 +33,35 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* spinner alignment */
+.spinner {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.image-box {
+  margin: 1rem 30%;
+}
+
+.image-box img {
+  width: 100%;
+}
+
+/* back */
+
+.back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 4rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: tomato;
+}
+
 /* error middleware*/
 .errorMessage {
   display: flex;
@@ -70,4 +99,24 @@ body {
   top: 1rem;
   right: 1rem;
   background-color: aqua;
+}
+
+/* 1450px */
+
+@media screen and (max-width: 90.625em) {
+  .btn--1 {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+/* 900px */
+@media screen and (max-width: 56.25em) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .image-box {
+    margin: 1rem;
+  }
 }
