@@ -41,7 +41,7 @@ API_KEY: <YOUR_UNSPLASH_API_KEY>
 npm start
 ```
 
-- After those get into browser and specified https://localhost:<YOUR_PORT>
+- After those get into browser and go to specified https://localhost:<YOUR_PORT>
 
 ## Dependencies
 
